@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char *title;
+    int episodes_watched;
+    float rating;
+} Anime;
+
+Anime *watchlist = NULL;
+int count = 0;
+int capacity = 0;
+
+//grow the watchlist array when count = capacity (realloc)
+//allocate space for title and copy it in safely
+void add_anime(const char *title, int episodes, float rating) {
+
+}
+
+//print every entry in th watchlist with index, title, episodes and ratings
+void list_anime(void) {
+
+}
+
+//free the title at index, shift later entries down by one
+void remove_anime(int index) {
+
+}
+
+//free every title string then free the array itself
+void free_all(void) {
+
+}
+
+void print_menu(void) {
+    printf("\n1. Add anime\n2. List anime\n3. Remove anime\n4.Exit\nChoice: ");
+}
+
+int main(void) {
+    int choice;
+    do {
+        print_menu();
+        scanf("%d", %choice);
+
+        if (choice == 1) {
+            char title[256];
+            int episodes;
+            float rating;
+            printf("Title: ");
+            scanf(" %255[^\n]", title);
+            printf("Episodes watched: ");
+            scanf("%d", &episodes);
+            printf("Rating: ");
+            scanf("%f", &rating);
+            add_anime(title, episodes, rating);
+        } else if (choice == 2) {
+            list_anime();
+        } else if (choice == 3) {
+            int index;
+            printf("Index to remove: ");
+            scanf("%d", &index);
+            remove_anime(index);
+        }
+    } while (choice != 4);
+
+    free_all();
+    return 0;
+}
