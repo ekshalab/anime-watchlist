@@ -29,7 +29,13 @@ void add_anime(const char *title, int episodes, float rating) {
 
 //print every entry in th watchlist with index, title, episodes and ratings
 void list_anime(void) {
-
+    if (count == 0) {
+        printf("Your watchlist is empty.\n");
+        return;
+    }
+    for (int i = 0; i < count; i++) {
+        printf("%d. %s - %d episodes - %.1f/5\n", i + 1, watchlist[i].title, watchlist[i].episodes_watched, watchlist[i].rating);
+    }
 }
 
 //free the title at index, shift later entries down by one
