@@ -15,7 +15,16 @@ int capacity = 0;
 //grow the watchlist array when count = capacity (realloc)
 //allocate space for title and copy it in safely
 void add_anime(const char *title, int episodes, float rating) {
+    if (count == capacity) {
+        capacity = (capacity == 0) ? 4 : capacity * 2;
+        watchlist = realloc(watchlist, capacity * sizeof(Anime));
+    }
 
+    watchlist[count].title = malloc(strlen(title) + 1);
+    strcpy(watchlist[count].title, title);
+    watchlist[count].episodes_watched = episodes;
+    watchlist[count].rating = rating;
+    count++
 }
 
 //print every entry in th watchlist with index, title, episodes and ratings
