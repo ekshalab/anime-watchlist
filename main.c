@@ -24,7 +24,7 @@ void add_anime(const char *title, int episodes, float rating) {
     strcpy(watchlist[count].title, title);
     watchlist[count].episodes_watched = episodes;
     watchlist[count].rating = rating;
-    count++
+    count++;
 }
 
 //print every entry in th watchlist with index, title, episodes and ratings
@@ -40,7 +40,16 @@ void list_anime(void) {
 
 //free the title at index, shift later entries down by one
 void remove_anime(int index) {
+    index = index - 1;
 
+    if (index < 0 || index >= count) {
+        printf("Invalid index.\n");
+        return;
+    }
+    free(watchlist[index].title);
+    for (int i = index; i < count - 1; i ++) {
+        watchlist[i] = watchlist[i + 1];
+    }
 }
 
 //free every title string then free the array itself
@@ -56,7 +65,7 @@ int main(void) {
     int choice;
     do {
         print_menu();
-        scanf("%d", %choice);
+        scanf("%d", &choice);
 
         if (choice == 1) {
             char title[256];
