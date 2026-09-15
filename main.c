@@ -54,7 +54,13 @@ void remove_anime(int index) {
 
 //free every title string then free the array itself
 void free_all(void) {
-
+    for (int i = 0; i < count; i++) {
+        free(watchlist[i].title);
+    }
+    free(watchlist);
+    watchlist = NULL;
+    count = 0;
+    capacity = 0;
 }
 
 void print_menu(void) {
