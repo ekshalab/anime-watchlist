@@ -50,6 +50,7 @@ void remove_anime(int index) {
     for (int i = index; i < count - 1; i ++) {
         watchlist[i] = watchlist[i + 1];
     }
+    count--;
 }
 
 //free every title string then free the array itself
